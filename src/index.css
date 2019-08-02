@@ -1,7 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -16,4 +16,28 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.myScroll::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.myScroll::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, .1);
+  border-radius: 10px;
+}
+
+.myScroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 10px;
+}
+
+.myScroll::-webkit-scrollbar-button {
+  background-color: #393e46;
+  width: 0;
+}
+
+.myScroll::-webkit-scrollbar-corner {
+  background-color: black;
 }

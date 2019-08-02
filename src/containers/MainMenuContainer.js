@@ -23,13 +23,13 @@ const MenuIcon = styled.div`
   position: relative;
   width: 46px;
   height: 56px;
-  background: url('${props=>props.active?props.actImg:props.img}');
+  background: url('${props => (props.active ? props.actImg : props.img)}');
   background-repeat: no-repeat;
-  opacity: ${props=>props.active?1:.3};
+  opacity: ${props => (props.active ? 1 : 0.3)};
   cursor: pointer;
   &::before {
     position: absolute;
-    content: '${props=>props.text}';
+    content: '${props => props.text}';
     bottom: 0;
     left: 0;
     width: 100%;
@@ -38,14 +38,20 @@ const MenuIcon = styled.div`
   }
 `;
 
-
-const MainMenu = () => {
+const MainMenu = props => {
+  const { open } = props;
   return (
-    <MenuWrapper>
-      <MenuIcon img={like} actImg={likeOn} text="音樂庫" />
-      <MenuIcon img={browse} actImg={browseOn} text="瀏覽" active />
-      <MenuIcon img={search} actImg={searchOn} text="搜尋" />
-    </MenuWrapper>
+    <>
+      {open ? (
+        <MenuWrapper>
+          <MenuIcon img={like} actImg={likeOn} text='音樂庫' />
+          <MenuIcon img={browse} actImg={browseOn} text='瀏覽' active />
+          <MenuIcon img={search} actImg={searchOn} text='搜尋' />
+        </MenuWrapper>
+      ) : (
+        console.log("mainMenu close")
+      )}
+    </>
   );
 };
 

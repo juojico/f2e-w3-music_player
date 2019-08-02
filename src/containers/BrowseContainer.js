@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import BrowseArea from "../components/BrowseArea";
+import BROWSE_DATA from "../MockData";
 
 const BrowseWrapper = styled.div`
   position: absolute;
@@ -22,15 +23,26 @@ const Header = styled.div`
   align-items: cneter;
 `;
 
-const BrowseContainer = () => {
+const BrowseContainer = props => {
   const [menu, setMenu] = useState([]);
+  const { open } = props;
   return (
-    <BrowseWrapper>
-      <Header>
-        <img src={require('../media/slice/logo_music.svg')} alt="LOGO-MUSIC" width='80px' />
-      </Header>
-      <BrowseArea>BrowseContainer</BrowseArea>
-    </BrowseWrapper>
+    <>
+      {open ? (
+        <BrowseWrapper>
+          <Header>
+            <img
+              src={require("../media/slice/logo_music.svg")}
+              alt='LOGO-MUSIC'
+              width='80px'
+            />
+          </Header>
+          <BrowseArea data={BROWSE_DATA}>BrowseContainer</BrowseArea>
+        </BrowseWrapper>
+      ) : (
+        console.log("browse close")
+      )}
+    </>
   );
 };
 
