@@ -1,16 +1,28 @@
 {
   "files": {
-    "main.css": "/f2e-w3-music_player/static/css/main.2cce8147.chunk.css",
-    "main.js": "/f2e-w3-music_player/static/js/main.e4f127e6.chunk.js",
-    "main.js.map": "/f2e-w3-music_player/static/js/main.e4f127e6.chunk.js.map",
+    "main.css": "/f2e-w3-music_player/static/css/main.d84c4596.chunk.css",
+    "main.js": "/f2e-w3-music_player/static/js/main.c3f4e901.chunk.js",
+    "main.js.map": "/f2e-w3-music_player/static/js/main.c3f4e901.chunk.js.map",
     "runtime~main.js": "/f2e-w3-music_player/static/js/runtime~main.6a2a37c9.js",
     "runtime~main.js.map": "/f2e-w3-music_player/static/js/runtime~main.6a2a37c9.js.map",
-    "static/js/2.b41502e9.chunk.js": "/f2e-w3-music_player/static/js/2.b41502e9.chunk.js",
-    "static/js/2.b41502e9.chunk.js.map": "/f2e-w3-music_player/static/js/2.b41502e9.chunk.js.map",
+    "static/js/2.05b71f84.chunk.js": "/f2e-w3-music_player/static/js/2.05b71f84.chunk.js",
+    "static/js/2.05b71f84.chunk.js.map": "/f2e-w3-music_player/static/js/2.05b71f84.chunk.js.map",
     "index.html": "/f2e-w3-music_player/index.html",
-    "precache-manifest.bd9a0397176182ad1ff48ef636f80fc0.js": "/f2e-w3-music_player/precache-manifest.bd9a0397176182ad1ff48ef636f80fc0.js",
+    "precache-manifest.52686bc8aa6fd622a19a51c332bd5cde.js": "/f2e-w3-music_player/precache-manifest.52686bc8aa6fd622a19a51c332bd5cde.js",
     "service-worker.js": "/f2e-w3-music_player/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/f2e-w3-music_player/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/f2e-w3-music_player/static/media/logo.5d5d9eef.svg"
+    "static/css/main.d84c4596.chunk.css.map": "/f2e-w3-music_player/static/css/main.d84c4596.chunk.css.map",
+    "static/media/CanWePretend.jpg": "/f2e-w3-music_player/static/media/CanWePretend.03ade252.jpg",
+    "static/media/Cosmospeople.jpg": "/f2e-w3-music_player/static/media/Cosmospeople.c4de8fca.jpg",
+    "static/media/GEM.jpg": "/f2e-w3-music_player/static/media/GEM.1ca33a1e.jpg",
+    "static/media/icons_browse.svg": "/f2e-w3-music_player/static/media/icons_browse.1942e145.svg",
+    "static/media/icons_browse_on.svg": "/f2e-w3-music_player/static/media/icons_browse_on.9df80d66.svg",
+    "static/media/icons_like.svg": "/f2e-w3-music_player/static/media/icons_like.43390a33.svg",
+    "static/media/icons_like_on.svg": "/f2e-w3-music_player/static/media/icons_like_on.1c359197.svg",
+    "static/media/icons_search.svg": "/f2e-w3-music_player/static/media/icons_search.d83e7db5.svg",
+    "static/media/icons_search_on.svg": "/f2e-w3-music_player/static/media/icons_search_on.c30b4ca4.svg",
+    "static/media/logo_music.svg": "/f2e-w3-music_player/static/media/logo_music.792ac3f0.svg",
+    "static/media/nature.jpeg": "/f2e-w3-music_player/static/media/nature.28af1d97.jpeg",
+    "static/media/relax.jpeg": "/f2e-w3-music_player/static/media/relax.b29d6a80.jpeg",
+    "static/media/taylor.png": "/f2e-w3-music_player/static/media/taylor.e193e10b.png"
   }
 }
