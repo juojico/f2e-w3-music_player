@@ -15,7 +15,7 @@ const MainWrapper = styled.div`
 
 const Main = () =>{
     const [musicList,setMusicList] = useState([]);
-    return <MainWrapper>Main<AlbumContainer /><BrowseContainer /><PlayerContainer /><MainMenuContainer /></MainWrapper>
+    return <MainWrapper><AlbumContainer /><BrowseContainer /><PlayerContainer /><MainMenuContainer /></MainWrapper>
 }
 
 export default Main;

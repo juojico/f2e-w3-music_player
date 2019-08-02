@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Logo from "../media/slice/logo_music.svg";
 import BrowseArea from "../components/BrowseArea";
 
 const BrowseWrapper = styled.div`
@@ -9,6 +8,10 @@ const BrowseWrapper = styled.div`
   height: 100%;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: cneter;
+  flex-direction: column;
 `;
 
 const Header = styled.div`
@@ -24,7 +27,7 @@ const BrowseContainer = () => {
   return (
     <BrowseWrapper>
       <Header>
-        <img src={Logo} alt="LOGO-MUSIC" width='80px' />
+        <img src={require('../media/slice/logo_music.svg')} alt="LOGO-MUSIC" width='80px' />
       </Header>
       <BrowseArea>BrowseContainer</BrowseArea>
     </BrowseWrapper>
