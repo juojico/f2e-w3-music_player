@@ -17,7 +17,7 @@ const Main = () => {
   const [isPagesOpen, setPagesOpen] = useState([0,1,0,1]);
   return (
     <MainWrapper>
-      <AlbumContainer open={isPagesOpen[0]}/>
+      <AlbumContainer open={isPagesOpen[0]} />
       <BrowseContainer open={isPagesOpen[1]} />
       <PlayerContainer open={isPagesOpen[2]} />
       <MainMenuContainer open={isPagesOpen[3]} />
