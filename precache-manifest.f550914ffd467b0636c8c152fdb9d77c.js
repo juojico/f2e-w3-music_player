@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e3b9b169818943e4a8002db88546f782",
+    "revision": "8c5276adbef01583c6718efe0568ddda",
     "url": "/f2e-w3-music_player/index.html"
   },
   {
-    "revision": "b6883a973f1cb7be8bd3",
-    "url": "/f2e-w3-music_player/static/css/main.d84c4596.chunk.css"
+    "revision": "4db8e372d851be7baf03",
+    "url": "/f2e-w3-music_player/static/css/main.a4ac8ede.chunk.css"
   },
   {
     "revision": "cb3696cb7d238a7819ad",
     "url": "/f2e-w3-music_player/static/js/2.05b71f84.chunk.js"
   },
   {
-    "revision": "b6883a973f1cb7be8bd3",
-    "url": "/f2e-w3-music_player/static/js/main.c3f4e901.chunk.js"
+    "revision": "4db8e372d851be7baf03",
+    "url": "/f2e-w3-music_player/static/js/main.9bfa344e.chunk.js"
   },
   {
     "revision": "bb315abe277a6336cc67",
@@ -32,32 +32,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/f2e-w3-music_player/static/media/GEM.1ca33a1e.jpg"
   },
   {
-    "revision": "1942e145299470fd4063c7652f4aceca",
-    "url": "/f2e-w3-music_player/static/media/icons_browse.1942e145.svg"
+    "revision": "3d74d08964fd2562eb0fc6900cd14319",
+    "url": "/f2e-w3-music_player/static/media/icons_browse.3d74d089.svg"
   },
   {
-    "revision": "9df80d662b7505cd4ec1cd9037973fc7",
-    "url": "/f2e-w3-music_player/static/media/icons_browse_on.9df80d66.svg"
+    "revision": "6fc6514baba7e4fb52fbc84337abd230",
+    "url": "/f2e-w3-music_player/static/media/icons_browse_on.6fc6514b.svg"
   },
   {
-    "revision": "43390a3301a470f3e262e7e291da92db",
-    "url": "/f2e-w3-music_player/static/media/icons_like.43390a33.svg"
+    "revision": "e801584d814cde2d58674b20153d6449",
+    "url": "/f2e-w3-music_player/static/media/icons_like.e801584d.svg"
   },
   {
-    "revision": "1c3591973446e9bd57d1edc897598d95",
-    "url": "/f2e-w3-music_player/static/media/icons_like_on.1c359197.svg"
+    "revision": "445cda7edeafbbe6ed4c7481dd1405c1",
+    "url": "/f2e-w3-music_player/static/media/icons_like_on.445cda7e.svg"
   },
   {
-    "revision": "d83e7db5a1e722e65319354f1b86e066",
-    "url": "/f2e-w3-music_player/static/media/icons_search.d83e7db5.svg"
+    "revision": "947b73c0dc6f0632c912e1060a3c43eb",
+    "url": "/f2e-w3-music_player/static/media/icons_search.947b73c0.svg"
   },
   {
-    "revision": "c30b4ca411dbacec090c1b2af53b40e1",
-    "url": "/f2e-w3-music_player/static/media/icons_search_on.c30b4ca4.svg"
+    "revision": "d18c61cfb27410b93477ff8f5254094e",
+    "url": "/f2e-w3-music_player/static/media/icons_search_on.d18c61cf.svg"
   },
   {
-    "revision": "792ac3f04ccc65d09b07db1f98b3314f",
-    "url": "/f2e-w3-music_player/static/media/logo_music.792ac3f0.svg"
+    "revision": "e745fc97277a67c6851590475c5b3610",
+    "url": "/f2e-w3-music_player/static/media/logo_music.e745fc97.svg"
   },
   {
     "revision": "28af1d971442544c725d2156cbd5d1e3",
