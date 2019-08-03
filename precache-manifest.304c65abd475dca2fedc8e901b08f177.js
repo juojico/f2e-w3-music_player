@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "abaadcbdd5ca7d43efc73a1af4fdce7b",
+    "revision": "5bef818acc80ae3a7b8d74fe082364f7",
     "url": "/f2e-w3-music_player/index.html"
   },
   {
-    "revision": "0798aa478373ee575ef0",
+    "revision": "dac515aafe5a5fd19135",
     "url": "/f2e-w3-music_player/static/css/main.fea9174b.chunk.css"
   },
   {
-    "revision": "142c10f388dcc8ea0c62",
-    "url": "/f2e-w3-music_player/static/js/2.b100c3ed.chunk.js"
+    "revision": "0786d5cf06adc71fa80c",
+    "url": "/f2e-w3-music_player/static/js/2.127be80e.chunk.js"
   },
   {
-    "revision": "0798aa478373ee575ef0",
-    "url": "/f2e-w3-music_player/static/js/main.9a6b75db.chunk.js"
+    "revision": "dac515aafe5a5fd19135",
+    "url": "/f2e-w3-music_player/static/js/main.1742eeff.chunk.js"
   },
   {
     "revision": "bb315abe277a6336cc67",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1ca33a1ebf2c35addb92d4ab3f12595e",
     "url": "/f2e-w3-music_player/static/media/GEM.1ca33a1e.jpg"
+  },
+  {
+    "revision": "cd4cb2df35df483a530a0d6dd9c505e4",
+    "url": "/f2e-w3-music_player/static/media/btn_back.cd4cb2df.svg"
   },
   {
     "revision": "dd9c7f2a21218f90e684ae5259401d29",
