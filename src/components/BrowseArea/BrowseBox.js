@@ -1,21 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import taylor from "../../media/image/taylor.png";
-import gem from "../../media/image/GEM.jpg";
-import Cosmospeople from "../../media/image/Cosmospeople.jpg";
-import no6 from "../../media/image/NO.6 Collaborations Project.jpeg";
-import canwe from "../../media/image/CanWePretend.jpg";
-import relax from "../../media/image/relax.jpeg";
-import nature from "../../media/image/nature.jpeg";
+import {
+  taylor,
+  gem,
+  Cosmospeople,
+  no6,
+  canwe,
+  relax,
+  nature
+} from "../../media/index.js";
 
 const BrowseBoxWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: cale(100%+24px);
   hight: 206px;
-  overflow-x: auto;
   margin-left: -12px;
   margin-right: -12px;
+  overflow-x: auto;
 `;
 
 const Box = styled.div`
@@ -28,6 +29,7 @@ const AlbumName = styled.div`
   display: block;
   width: 100%;
   font-size: 12px;
+  margin: 4px 0 1px 0;
 `;
 
 const AlbumImg = styled.div`
@@ -36,6 +38,7 @@ const AlbumImg = styled.div`
   border-radius: 4px;
   background: url(${props => IMG[props.img]});
   background-size: cover;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.36);
 `;
 
 const Info = styled.div`
@@ -67,7 +70,7 @@ const BrowseBox = props => {
     <BrowseBoxWrapper className={"myScroll"}>
       {items.map(item => {
         return (
-          <Box>
+          <Box key={`Box${item}`}>
             <AlbumImg img={data[item].img} />
             <AlbumName>{data[item].name}</AlbumName>
             <Info>

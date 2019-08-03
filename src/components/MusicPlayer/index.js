@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 function MusicPlayer() {
   const [list, setList] = useState("");

@@ -13,7 +13,15 @@ const AlbumWrapper = styled.div`
 const AlbumContainer = props => {
   const [menu, setMenu] = useState([]);
   const { open } = props;
-  return <>{open?<AlbumWrapper>AlbumContainer</AlbumWrapper>:console.log('album close')}</>;
+  return (
+    <>
+      {open ? (
+        <AlbumWrapper>AlbumContainer</AlbumWrapper>
+      ) : (
+        console.log("album close")
+      )}
+    </>
+  );
 };
 
 export default AlbumContainer;

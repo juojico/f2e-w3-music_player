@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import like from "../media/slice/icons_like.svg";
 import likeOn from "../media/slice/icons_like_on.svg";
@@ -8,15 +8,16 @@ import search from "../media/slice/icons_search.svg";
 import searchOn from "../media/slice/icons_search_on.svg";
 
 const MenuWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   background: #222831;
   width: 100%;
+  max-width: 750px;
   height: 84px;
   bottom: 0;
   padding: 8px 32px;
   display: flex;
   justify-content: space-between;
-  z-index: 100;
+  z-index: 20;
 `;
 
 const MenuIcon = styled.div`
@@ -25,6 +26,8 @@ const MenuIcon = styled.div`
   height: 56px;
   background: url('${props => (props.active ? props.actImg : props.img)}');
   background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
   opacity: ${props => (props.active ? 1 : 0.3)};
   cursor: pointer;
   &::before {
