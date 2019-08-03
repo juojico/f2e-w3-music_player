@@ -12,6 +12,9 @@ const BrowseWrapper = styled.div`
   justify-content: center;
   align-items: cneter;
   flex-direction: column;
+  transition: 0.5s;
+  z-index: 10;
+  ${props => (props.open ? null : `left: -100%; width: 0;opacity: 0;`)}
 `;
 
 const Header = styled.div`
@@ -28,21 +31,12 @@ const Header = styled.div`
 const BrowseContainer = props => {
   const { open, data } = props;
   return (
-    <>
-      {open ? (
-        <BrowseWrapper>
-          <Header>
-            <img
-              src={require("../media/slice/logo_music.svg")}
-              alt='LOGO-MUSIC'
-            />
-          </Header>
-          <BrowseArea data={data}>BrowseContainer</BrowseArea>
-        </BrowseWrapper>
-      ) : (
-        console.log("browse close")
-      )}
-    </>
+    <BrowseWrapper open={open}>
+      <Header>
+        <img src={require("../media/slice/logo_music.svg")} alt="LOGO-MUSIC" />
+      </Header>
+      <BrowseArea data={data}>BrowseContainer</BrowseArea>
+    </BrowseWrapper>
   );
 };
 

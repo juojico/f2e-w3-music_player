@@ -17,7 +17,9 @@ const MenuWrapper = styled.div`
   padding: 8px 32px;
   display: flex;
   justify-content: space-between;
+  transition: 0.5s;
   z-index: 20;
+  ${props => (props.open ? null : `height: 0;opacity: 0;`)}
 `;
 
 const MenuIcon = styled.div`
@@ -44,17 +46,11 @@ const MenuIcon = styled.div`
 const MainMenu = props => {
   const { open } = props;
   return (
-    <>
-      {open ? (
-        <MenuWrapper>
-          <MenuIcon img={like} actImg={likeOn} text='音樂庫' />
-          <MenuIcon img={browse} actImg={browseOn} text='瀏覽' active />
-          <MenuIcon img={search} actImg={searchOn} text='搜尋' />
-        </MenuWrapper>
-      ) : (
-        console.log("mainMenu close")
-      )}
-    </>
+    <MenuWrapper open={open}>
+      <MenuIcon img={like} actImg={likeOn} text="音樂庫" />
+      <MenuIcon img={browse} actImg={browseOn} text="瀏覽" active />
+      <MenuIcon img={search} actImg={searchOn} text="搜尋" />
+    </MenuWrapper>
   );
 };
 

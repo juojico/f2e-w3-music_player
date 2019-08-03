@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import PlayBar from "../components/PlayBar";
 import play from "../media/slice/btn_play.svg";
@@ -32,7 +32,7 @@ const PlayerWrapper = styled.div`
   bottom: 76px;
   width: 100%;
   max-width: 750px;
-  border-top: 1px solid white;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
   overflow: hidden;
   transition: 0.5s;
   z-index: 30;
@@ -50,7 +50,6 @@ const PlayerArea = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  min-height: 270px;
   padding: 6px 16px;
   ${props =>
     props.type
@@ -58,6 +57,7 @@ const PlayerArea = styled.div`
       background: rgba(34, 40, 49, 0.7);
       flex-grow: 1;`
       : `
+      min-height: 270px;
       margin-top: 24px;
       justify-content: center;
       overflow: hidden;
@@ -90,16 +90,20 @@ const AlbumImg = styled.div`
   margin-right: 10px;
   border-radius: 3px;
   background: url(${props => IMG[props.img]});
-  background-size: cover;
-  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.16);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0px 5px rgba(0, 0, 0, 0.16));
   transition: 0.5s;
   ${props =>
     props.open
-      ? `width: 276px;
-      height: 276px;
+      ? `width: 100%;
+      height: 100%;
+      max-width: 276px;
+      max-height: 276px;
       margin: auto;
       margin-top: -138px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.36);`
+      filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.36));`
       : null}
 `;
 
@@ -129,7 +133,7 @@ const Controller = styled.div`
   width: 132px;
 
   ${props =>
-    props.open ? `width: 100%;padding: 0 64px;margin: 36px 0;` : null}
+    props.open ? `width: 100%;padding: 0 20%;margin: 36px 0;` : null}
 `;
 
 const ControllerSong = styled.div`
@@ -174,7 +178,8 @@ const IMG = {
 };
 
 const PlayerContainer = props => {
-  const { open, data, song, onClick, onClose } = props;
+  const [iconStatus, setIconStatus] = useState([0,1,0]);
+  const { open, data, song, onOpen, onClose } = props;
   return (
     <PlayerWrapper open={open}>
       {open ? (
@@ -182,7 +187,7 @@ const PlayerContainer = props => {
           <CloseIcon onClick={onClose} />
         </PlayerArea>
       ) : null}
-      <PlayerArea type={1} open={open} onClick={onClick}>
+      <PlayerArea type={1} open={open} onClick={onOpen}>
         <AlbumImg img={data.img} open={open} />
         <Info open={open}>
           <Songs open={open}>{data.songs[song]}</Songs>

@@ -1,5 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import {
+  taylor,
+  gem,
+  Cosmospeople,
+  no6,
+  canwe,
+  relax,
+  nature,
+  taylorBg
+} from "../media/index.js";
 
 const AlbumWrapper = styled.div`
   background: #222831;

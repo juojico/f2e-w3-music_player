@@ -31,7 +31,7 @@ const Main = () => {
     <MainWrapper>
       <AlbumContainer open={isPagesOpen[0]} />
       <BrowseContainer open={isPagesOpen[1]} data={BROWSE_DATA} />
-      <PlayerContainer open={isPagesOpen[2]} data={ALL_ALBUM[nowPlayAlbun]} song={nowPlaySong} onClick={()=>handleClick([0,0,1,0])} onClose={()=>handleClick([0,1,0,1])}/>
+      <PlayerContainer open={isPagesOpen[2]} data={ALL_ALBUM[nowPlayAlbun]} song={nowPlaySong} onOpen={()=>handleClick([0,0,1,0])} onClose={()=>handleClick([0,1,0,1])}/>
       <MainMenuContainer open={isPagesOpen[3]} />
     </MainWrapper>
   );

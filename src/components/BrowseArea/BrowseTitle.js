@@ -27,11 +27,11 @@ const TITLE = {
 };
 
 const BrowseTitle = props => {
-  const { title, onClickMore } = props;
+  const { title, onClickMore, noMore } = props;
   return (
     <Title>
       {TITLE[title]}
-      <More onClick={onClickMore}>顯示全部</More>
+      {noMore ? null : <More onClick={onClickMore}>顯示全部</More>}
     </Title>
   );
 };

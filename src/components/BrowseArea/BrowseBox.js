@@ -13,16 +13,19 @@ import {
 const BrowseBoxWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  hight: 206px;
+  height: 206px;
   margin-left: -12px;
   margin-right: -12px;
   overflow-x: auto;
+  ${props =>
+    props.showAll ? `flex-wrap: wrap;padding-bottom: 96px;height:auto;` : null}
 `;
 
 const Box = styled.div`
   width: 166px;
   text-align: left;
   margin-left: 10px;
+  margin-bottom: 18px;
 `;
 
 const AlbumName = styled.div`
@@ -64,10 +67,10 @@ const IMG = {
 };
 
 const BrowseBox = props => {
-  const { data, onClickAlbum } = props;
+  const { data, onClickAlbum, showAll } = props;
   const items = Object.keys(data);
   return (
-    <BrowseBoxWrapper className={"myScroll"}>
+    <BrowseBoxWrapper className={"myScroll"} showAll={showAll}>
       {items.map(item => {
         return (
           <Box key={`Box${item}`}>
