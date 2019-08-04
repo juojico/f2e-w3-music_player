@@ -284,7 +284,7 @@ const AlbumContainer = props => {
                     isPlaying ? (
                       <Motion />
                     ) : (
-                      <img src={motion} />
+                      <img src={motion} alt={'motion'}/>
                     )
                   ) : (
                     index + 1

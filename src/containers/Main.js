@@ -20,8 +20,13 @@ const MainWrapper = styled.div`
 `;
 
 const Main = () => {
-  const [isPagesOpen, setPagesOpen] = useState([0, 1, 0, 1]);
-  const [isAdOpen, setAdOpen] = useState(false);
+  const [isPagesOpen, setPagesOpen] = useState({
+    album: false,
+    browse: true,
+    player: false,
+    menu: true,
+    ad: false
+  });
   const [isPlaying, setIsPlaying] = useState(true);
   const [nowPlayAlbum, setNowPlayAlbum] = useState("taylor");
   const [pickAlbum, setPickAlbum] = useState("taylor");
@@ -33,7 +38,7 @@ const Main = () => {
 
   const handlePick = name => {
     setPickAlbum(name);
-    setPagesOpen([1, 0, 0, 1]);
+    setPagesOpen({ ...isPagesOpen, album: true, browse: false });
   };
 
   const handleOnPlay = (album, song) => {
@@ -43,26 +48,48 @@ const Main = () => {
 
   return (
     <MainWrapper>
-      <AdContainer open={isAdOpen} />
+      <AdContainer
+        open={isPagesOpen.ad}
+        onClose={() => setPagesOpen({ ...isPagesOpen, ad: false })}
+      />
       <AlbumContainer
-        open={isPagesOpen[0]}
+        open={isPagesOpen.album}
         data={ALL_ALBUM[pickAlbum]}
         pickAlbum={pickAlbum}
         nowPlaySong={nowPlaySong}
-        onClose={() => handleClick([0, 1, 0, 1])}
+        onClose={() =>
+          handleClick({ ...isPagesOpen, album: false, browse: true })
+        }
         onPlay={handleOnPlay}
         isPlaying={isPlaying}
       />
-      <BrowseContainer open={isPagesOpen[1]} onPick={handlePick} />
+      <BrowseContainer open={isPagesOpen.browse} onPick={handlePick} />
       <PlayerContainer
-        open={isPagesOpen[2]}
+        open={isPagesOpen.player}
         data={ALL_ALBUM[nowPlayAlbum]}
         song={nowPlaySong}
-        onOpen={() => handleClick([0, 0, 1, 0])}
-        onClose={() => handleClick([0, 1, 0, 1])}
+        onOpen={() =>
+          handleClick({
+            ...isPagesOpen,
+            album: false,
+            browse: false,
+            player: true,
+            menu: false
+          })
+        }
+        onClose={() =>
+          handleClick({
+            ...isPagesOpen,
+            album: false,
+            browse: true,
+            player: false,
+            menu: true
+          })
+        }
         isPlaying={statu => setIsPlaying(statu)}
+        openAd={() => setPagesOpen({ ...isPagesOpen, ad: true })}
       />
-      <MainMenuContainer open={isPagesOpen[3]} />
+      <MainMenuContainer open={isPagesOpen.menu} />
     </MainWrapper>
   );
 };

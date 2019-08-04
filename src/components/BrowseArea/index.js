@@ -36,7 +36,7 @@ const Area = styled.div`
 
 const BrowseArea = props => {
   const [showMore, setShowmore] = useState([false, ""]);
-  const { data, onPick, open } = props;
+  const { onPick, open } = props;
   const titles = Object.keys(BROWSE_DATA);
   const onClickMore = id => {
     setShowmore([true, id]);

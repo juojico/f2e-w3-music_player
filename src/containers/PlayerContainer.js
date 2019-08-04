@@ -11,6 +11,7 @@ import repeat from "../media/slice/btn_repeat.svg";
 import repeat1 from "../media/slice/btn_repeat1.svg";
 import like from "../media/slice/btn_like.svg";
 import likeOn from "../media/slice/btn_like_on.svg";
+import iceCream from "../media/music/Ice_Cream.mp3";
 
 import {
   taylor,
@@ -177,6 +178,8 @@ const IMG = {
   JFla: JFla
 };
 
+const audio = new Audio(iceCream);
+
 const PlayerContainer = props => {
   const [iconStatus, setIconStatus] = useState({
     like: true,
@@ -184,10 +187,21 @@ const PlayerContainer = props => {
     repeat: "no",
     playing: true
   });
-  const { open, data, song, onOpen, onClose, isPlaying } = props;
+  const [audioTime, setAudioTime] = useState([0, 0]);
+  const { open, data, song, onOpen, onClose, isPlaying,openAd } = props;
 
   useEffect(() => {
     isPlaying(iconStatus.playing);
+    if (iconStatus.playing) {
+      audio.play();
+      setTimeout(() => {
+        const time = Math.round(audio.currentTime);
+        const total = Math.round(audio.duration);
+        setAudioTime([time, total]);
+      }, 1000);
+    } else {
+      audio.pause();
+    }
   });
 
   return (
@@ -209,7 +223,7 @@ const PlayerContainer = props => {
             </Details>
           ) : null}
         </Info>
-        <PlayBar open={open} time={70} hasInfo />
+        <PlayBar open={open} time={audioTime} hasInfo />
         {open ? (
           <ControllerSong>
             {iconStatus.shuffle ? (
@@ -273,10 +287,10 @@ const PlayerContainer = props => {
               onClick={() => setIconStatus({ ...iconStatus, playing: true })}
             />
           )}
-          <PlayerIcon img={next} size={open ? "150%" : null} />
+          <PlayerIcon img={next} size={open ? "150%" : null} onClick={openAd}/>
         </Controller>
         {open ? (
-          <PlayBar open={open} time={50} color={"#C9C6CE"} hasIcon />
+          <PlayBar open={open} time={[audio.volume,1]} color={"#C9C6CE"} hasIcon />
         ) : null}
       </PlayerArea>
     </PlayerWrapper>

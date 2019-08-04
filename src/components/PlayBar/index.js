@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import volumMin from "../../media/slice/volumMin.svg";
 import volumMax from "../../media/slice/volumMax.svg";
@@ -36,6 +36,7 @@ const BarBox = styled.div`
     left: 0;
     border-radius: 2px;
     background: ${props => props.color || "#29dde0"};
+    transition: 1s linear;
   }
   &::after {
     position: absolute;
@@ -47,6 +48,7 @@ const BarBox = styled.div`
     border-radius: 100%;
     border: 2px solid ${props => props.color || "#29dde0"};
     background: #222831;
+    transition: 1s linear;
   }
 `;
 
@@ -68,19 +70,27 @@ const Info = styled.div`
 `;
 
 const PlayBar = props => {
-  const [list, setList] = useState("");
-  const { open, time, onClick, color, hasIcon, hasInfo } = props;
+  const { open, time, color, hasIcon, hasInfo } = props;
+
+  const toTime = num =>{
+    return Math.round(num/60)+':'+(num%60<10?'0'+num%60:num%60)
+  }
+
+  const percent = (n1,n2) => {
+    return Math.round(n1/n2*100)
+  }
+
   return (
     <BarWrapper open={open} hasIcon={hasIcon}>
       <BarArea>
         {hasIcon ? <Icon img={volumMin} /> : null}
-        <BarBox left={time} color={color} />
+        <BarBox left={percent(time[0],time[1])} color={color} />
         {hasIcon ? <Icon img={volumMax} /> : null}
       </BarArea>
       {open && hasInfo ? (
         <Info>
-          <span>2:57</span>
-          <span>-0:33</span>
+          <span>{toTime(time[0])}</span>
+          <span>{toTime(time[1])}</span>
         </Info>
       ) : null}
     </BarWrapper>

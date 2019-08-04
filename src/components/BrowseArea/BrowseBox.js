@@ -70,7 +70,7 @@ const IMG = {
 };
 
 const BrowseBox = props => {
-  const { data, onClickAlbum, showAll,onPick } = props;
+  const { data, showAll,onPick } = props;
   return (
     <BrowseBoxWrapper className={"myScroll"} showAll={showAll}>
       {data.map(item => {
