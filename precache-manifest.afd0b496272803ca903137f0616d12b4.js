@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fa2faf70a9801bdbdfb4cf46ab3ed947",
+    "revision": "6bc97c891f5cbea59104c23996a7b242",
     "url": "/f2e-w3-music_player/index.html"
   },
   {
-    "revision": "e412dbb6b66503867b18",
+    "revision": "360105847726c731f861",
     "url": "/f2e-w3-music_player/static/css/main.fea9174b.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/f2e-w3-music_player/static/js/2.67354ece.chunk.js"
   },
   {
-    "revision": "e412dbb6b66503867b18",
-    "url": "/f2e-w3-music_player/static/js/main.9c11b424.chunk.js"
+    "revision": "360105847726c731f861",
+    "url": "/f2e-w3-music_player/static/js/main.9b2b12f6.chunk.js"
   },
   {
     "revision": "bb315abe277a6336cc67",
