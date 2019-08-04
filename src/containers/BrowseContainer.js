@@ -29,13 +29,13 @@ const Header = styled.div`
 `;
 
 const BrowseContainer = props => {
-  const { open, data, onPick } = props;
+  const { open, onPick } = props;
   return (
     <BrowseWrapper open={open}>
       <Header>
         <img src={require("../media/slice/logo_music.svg")} alt="LOGO-MUSIC" />
       </Header>
-      <BrowseArea data={data} onPick={onPick}>BrowseContainer</BrowseArea>
+      <BrowseArea onPick={onPick} open={open} />
     </BrowseWrapper>
   );
 };

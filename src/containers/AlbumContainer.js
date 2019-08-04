@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
+import like from "../media/slice/btn_like.svg";
+import likeOn from "../media/slice/btn_like_on.svg";
+import play from "../media/slice/btn_play_lg.svg";
+import more from "../media/slice/btn_more.svg";
+import motion from "../media/slice/motion.svg";
 import { BtnBack } from "../components/Button";
 import {
   taylor,
@@ -47,7 +52,7 @@ const AlbumBg = styled.div`
   &::after {
     position: absolute;
     content: "";
-    width: 20px;
+    width: 50px;
     height: 100%;
     top: 48px;
     left: 0;
@@ -75,35 +80,39 @@ const MainArea = styled.div`
 const NavTOP = styled.div`
   width: 100%;
   height: 36px;
+  padding: 0 16px;
+  text-align: right;
 `;
+
+const Icon = styled.div`
+display: inline-block;
+  width: 44px;
+  height: 44px;
+  background: url('${props => props.img}');
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+`;
+
 const MainInfoBox = styled.div`
+  display: flex;
   width: 100%;
-  height: 166px;
-  padding: 16px;
+  min-height: 166px;
+  margin: 16px;
 `;
+
 const MusicList = styled.div`
   width: 100%;
-  height: 100%;
   flex-grow: 1;
-`;
-
-const Box = styled.div`
-  width: 166px;
-  text-align: left;
-  margin-left: 10px;
-  ${props => (props.showAll ? `margin-bottom: 18px;` : null)}
-`;
-
-const AlbumName = styled.div`
-  display: block;
-  width: 100%;
-  font-size: 12px;
-  margin: 4px 0 1px 0;
+  padding-left: 50px;
+  padding-bottom: 150px;
+  overflow-y: auto;
 `;
 
 const AlbumImg = styled.div`
   width: 166px;
   height: 166px;
+  margin-right: 10px;
   border-radius: 4px;
   background: url(${props => IMG[props.img]});
   background-size: cover;
@@ -111,15 +120,107 @@ const AlbumImg = styled.div`
 `;
 
 const Info = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 9px;
+  height: 100%;
 `;
 
-const Singer = styled.div``;
+const AlbumName = styled.div`
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: -8px;
+`;
+
+const Singer = styled.div`
+  font-size: 16px;
+  color: #29dde0;
+`;
+const Year = styled.div`
+  margin-top: 3px;
+  font-size: 10px;
+`;
+
 const Songs = styled.div`
+  margin-top: 3px;
   color: #e5e5e5;
   font-size: 8px;
+`;
+
+const ListItem = styled.div`
+  position: relative;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background: #70707011;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 48px;
+      height: 48px;
+      background: url(${play});
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: none;
+    }
+    & > div:first-child {
+      opacity: 0;
+    }
+  }
+`;
+
+const ItemHead = styled.div`
+  width: 48px;
+  line-height: 45px;
+  text-align: center;
+  color: #c9c6ce;
+  cursor: pointer;
+`;
+
+const ItemBody = styled.div`
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #393e46;
+`;
+
+const MotionAni =keyframes`
+  0% {
+    box-shadow: -14px 19px 0 #29DDE032,-7px 16px 0 #29DDE064,0 21px 0 #29DDE096,7px 24px 0 #29DDE0C8,14px 21px 0 #29DDE0FF;
+  }
+  20% {
+    box-shadow: -14px 16px 0 #29DDE032,-7px 21px 0 #29DDE064,0 24px 0 #29DDE096,7px 21px 0 #29DDE0C8,14px 19px 0 #29DDE0FF;
+  }
+  40% {
+    box-shadow: -14px 21px 0 #29DDE032,-7px 24px 0 #29DDE064,0 21px 0 #29DDE096,7px 19px 0 #29DDE0C8,14px 16px 0 #29DDE0FF;
+  }
+  60% {
+    box-shadow: -14px 24px 0 #29DDE032,-7px 21px 0 #29DDE064,0 19px 0 #29DDE096,7px 16px 0 #29DDE0C8,14px 21px 0 #29DDE0FF;
+  }
+  80% {
+    box-shadow: -14px 21px 0 #29DDE032,-7px 19px 0 #29DDE064,0 16px 0 #29DDE096,7px 21px 0 #29DDE0C8,14px 24px 0 #29DDE0FF;
+  }
+  100% {
+    box-shadow: -14px 19px 0 #29DDE032,-7px 16px 0 #29DDE064,0 21px 0 #29DDE096,7px 24px 0 #29DDE0C8,14px 21px 0 #29DDE0FF;
+  }
+
+`
+
+const Motion = styled.div`
+  position: relative;
+  display: contents;
+  width: 100%;
+  height: 100%;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 4px;
+    top: 0;
+    border-radius: 100%;
+    box-shadow: -14px 19px 0 #29DDE032,-7px 16px 0 #29DDE064,0 21px 0 #29DDE096,7px 24px 0 #29DDE0C8,14px 21px 0 #29DDE0FF;
+    animation: ${MotionAni} .5s linear infinite;
 `;
 
 const IMG = {
@@ -134,18 +235,83 @@ const IMG = {
 };
 
 const AlbumContainer = props => {
-  const [menu, setMenu] = useState([]);
-  const { open, data, onClose } = props;
+  const [islike, setLike] = useState({ main: false });
+  const {
+    open,
+    data,
+    pickAlbum,
+    onClose,
+    onPlay,
+    nowPlaySong,
+    isPlaying
+  } = props;
   return (
     <AlbumWrapper open={open}>
       {open ? <BtnBack onClick={onClose} /> : null}
       <AlbumBg open={open} />
       <MainArea open={open}>
-        <NavTOP />
+        <NavTOP>
+          {islike.main ? (
+            <Icon
+              img={likeOn}
+              onClick={() => setLike({ ...islike, main: false })}
+            />
+          ) : (
+            <Icon
+              img={like}
+              onClick={() => setLike({ ...islike, main: true })}
+            />
+          )}
+          <Icon img={more} />
+        </NavTOP>
         <MainInfoBox>
-          <AlbumImg img={data.img}/>
+          <AlbumImg img={data.img} />
+          <Info>
+            <AlbumName>{data.name}</AlbumName>
+            <Singer>{data.singer}</Singer>
+            <Year>{data.year}</Year>
+            <Songs>
+              共{data.songs.length}首歌曲, {data.songs.length * 3}分鐘
+            </Songs>
+          </Info>
         </MainInfoBox>
-        <MusicList />
+        <MusicList className={"myScroll"}>
+          {data.songs.map((item, index) => {
+            return (
+              <ListItem key={`songs${item}`}>
+                <ItemHead onClick={() => onPlay(pickAlbum, item)}>
+                  {nowPlaySong === item ? (
+                    isPlaying ? (
+                      <Motion />
+                    ) : (
+                      <img src={motion} />
+                    )
+                  ) : (
+                    index + 1
+                  )}
+                </ItemHead>
+                <ItemBody>
+                  {item}
+                  {islike[data.name + item] ? (
+                    <Icon
+                      img={likeOn}
+                      onClick={() =>
+                        setLike({ ...islike, [data.name + item]: false })
+                      }
+                    />
+                  ) : (
+                    <Icon
+                      img={like}
+                      onClick={() =>
+                        setLike({ ...islike, [data.name + item]: true })
+                      }
+                    />
+                  )}
+                </ItemBody>
+              </ListItem>
+            );
+          })}
+        </MusicList>
       </MainArea>
     </AlbumWrapper>
   );

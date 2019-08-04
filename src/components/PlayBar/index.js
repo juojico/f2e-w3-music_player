@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import volumMin from "../../media/slice/volumMin.svg";
+import volumMax from "../../media/slice/volumMax.svg";
 
 const BarWrapper = styled.div`
-  width: 100%;
+  width: ${props => props.hasIcon?'60%':'80%'};
+  margin: auto;
   ${props =>
     props.open
       ? null
       : `position: absolute;
+      width: 100%;
       top: 55px;
       left: 0;`}
 `;
@@ -17,8 +21,6 @@ const BarArea = styled.div`
   align-items: center;
   width: 100%;
 `;
-
-const Icon = styled.div``;
 
 const BarBox = styled.div`
   position: relative;
@@ -33,7 +35,7 @@ const BarBox = styled.div`
     height: 2px;
     left: 0;
     border-radius: 2px;
-    background: #29dde0;
+    background: ${props => props.color || "#29dde0"};
   }
   &::after {
     position: absolute;
@@ -43,11 +45,19 @@ const BarBox = styled.div`
     top: -6px;
     left: ${props => props.left}%;
     border-radius: 100%;
-    border: 2px solid #29dde0;
+    border: 2px solid ${props => props.color || "#29dde0"};
     background: #222831;
   }
 `;
 
+
+const Icon = styled.div`
+  width: 20px;
+  height: 16px;
+  margin: 0 10px;
+  background: url(${props=> props.img});
+  background-repeat: no-repeat;
+`
 const Info = styled.div`
   display: flex;
   justify-content: space-between;
@@ -59,15 +69,15 @@ const Info = styled.div`
 
 const PlayBar = props => {
   const [list, setList] = useState("");
-  const { open, time, onClick } = props;
+  const { open, time, onClick, color, hasIcon, hasInfo } = props;
   return (
-    <BarWrapper open={open}>
+    <BarWrapper open={open} hasIcon={hasIcon}>
       <BarArea>
-        <Icon />
-        <BarBox left={70} />
-        <Icon />
+        {hasIcon ? <Icon img={volumMin} /> : null}
+        <BarBox left={time} color={color} />
+        {hasIcon ? <Icon img={volumMax} /> : null}
       </BarArea>
-      {open ? (
+      {open && hasInfo ? (
         <Info>
           <span>2:57</span>
           <span>-0:33</span>

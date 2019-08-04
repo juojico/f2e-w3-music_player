@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PlayBar from "../components/PlayBar";
 import play from "../media/slice/btn_play.svg";
@@ -7,7 +7,6 @@ import last from "../media/slice/btn_last.svg";
 import next from "../media/slice/btn_next.svg";
 import down from "../media/slice/btn_down.svg";
 import shuffle from "../media/slice/btn_shuffle.svg";
-import shuffleOn from "../media/slice/btn_shuffle_on.svg";
 import repeat from "../media/slice/btn_repeat.svg";
 import repeat1 from "../media/slice/btn_repeat1.svg";
 import like from "../media/slice/btn_like.svg";
@@ -56,7 +55,8 @@ const PlayerArea = styled.div`
     props.type
       ? `
       background: rgba(34, 40, 49, 0.7);
-      flex-grow: 1;`
+      flex-grow: 1;
+      padding-bottom: 36px;`
       : `
       min-height: 270px;
       margin-top: 24px;
@@ -133,8 +133,7 @@ const Controller = styled.div`
   justify-content: space-around;
   width: 132px;
 
-  ${props =>
-    props.open ? `width: 100%;padding: 0 20%;margin: 36px 0;` : null}
+  ${props => (props.open ? `width: 100%;padding: 0 20%;margin: 36px 0;` : null)}
 `;
 
 const ControllerSong = styled.div`
@@ -144,8 +143,6 @@ const ControllerSong = styled.div`
   margin-top: 27px;
 `;
 
-const Volume = styled.div``;
-
 const PlayerIcon = styled.div`
   position: relative;
   width: 44px;
@@ -154,6 +151,7 @@ const PlayerIcon = styled.div`
   background-repeat: no-repeat;
   background-size: ${props => (props.size ? props.size : "contain")};
   background-position: center;
+  opacity: ${props => (props.disable ? "0.3" : "1")};
   cursor: pointer;
 `;
 
@@ -180,8 +178,18 @@ const IMG = {
 };
 
 const PlayerContainer = props => {
-  const [iconStatus, setIconStatus] = useState([0,1,0]);
-  const { open, data, song, onOpen, onClose } = props;
+  const [iconStatus, setIconStatus] = useState({
+    like: true,
+    shuffle: false,
+    repeat: "no",
+    playing: true
+  });
+  const { open, data, song, onOpen, onClose, isPlaying } = props;
+
+  useEffect(() => {
+    isPlaying(iconStatus.playing);
+  });
+
   return (
     <PlayerWrapper open={open}>
       {open ? (
@@ -189,30 +197,87 @@ const PlayerContainer = props => {
           <CloseIcon onClick={onClose} />
         </PlayerArea>
       ) : null}
-      <PlayerArea type={1} open={open} onClick={onOpen}>
-        <AlbumImg img={data.img} open={open} />
+      <PlayerArea type={1} open={open}>
+        <AlbumImg img={data.img} open={open} onClick={onOpen} />
         <Info open={open}>
-          <Songs open={open}>{data.songs[song]}</Songs>
+          <Songs open={open} onClick={onOpen}>
+            {song}
+          </Songs>
           {open ? (
             <Details>
               {data.singer},{data.name},{data.year}
             </Details>
           ) : null}
         </Info>
-        <PlayBar open={open} />
+        <PlayBar open={open} time={70} hasInfo />
         {open ? (
           <ControllerSong>
-            <PlayerIcon img={shuffle} open={open} size="100%" />
-            <PlayerIcon img={likeOn} open={open} size="150%" />
-            <PlayerIcon img={repeat} open={open} size="100%" />
+            {iconStatus.shuffle ? (
+              <PlayerIcon
+                img={shuffle}
+                onClick={() => setIconStatus({ ...iconStatus, shuffle: false })}
+              />
+            ) : (
+              <PlayerIcon
+                img={shuffle}
+                disable
+                onClick={() => setIconStatus({ ...iconStatus, shuffle: true })}
+              />
+            )}
+            {iconStatus.like ? (
+              <PlayerIcon
+                img={likeOn}
+                size="150%"
+                onClick={() => setIconStatus({ ...iconStatus, like: false })}
+              />
+            ) : (
+              <PlayerIcon
+                img={like}
+                size="150%"
+                onClick={() => setIconStatus({ ...iconStatus, like: true })}
+              />
+            )}
+            {iconStatus.repeat === "no" ? (
+              <PlayerIcon
+                img={repeat}
+                disable
+                onClick={() =>
+                  setIconStatus({ ...iconStatus, repeat: "repeat" })
+                }
+              />
+            ) : iconStatus.repeat === "repeat" ? (
+              <PlayerIcon
+                img={repeat}
+                onClick={() => setIconStatus({ ...iconStatus, repeat: "ones" })}
+              />
+            ) : (
+              <PlayerIcon
+                img={repeat1}
+                onClick={() => setIconStatus({ ...iconStatus, repeat: "no" })}
+              />
+            )}
           </ControllerSong>
         ) : null}
         <Controller open={open}>
           <PlayerIcon img={last} size={open ? "150%" : null} />
-          <PlayerIcon img={pause} size={open ? "150%" : null} />
+          {iconStatus.playing ? (
+            <PlayerIcon
+              img={pause}
+              size={open ? "150%" : null}
+              onClick={() => setIconStatus({ ...iconStatus, playing: false })}
+            />
+          ) : (
+            <PlayerIcon
+              img={play}
+              size={open ? "150%" : null}
+              onClick={() => setIconStatus({ ...iconStatus, playing: true })}
+            />
+          )}
           <PlayerIcon img={next} size={open ? "150%" : null} />
         </Controller>
-        {open ? <Volume /> : null}
+        {open ? (
+          <PlayBar open={open} time={50} color={"#C9C6CE"} hasIcon />
+        ) : null}
       </PlayerArea>
     </PlayerWrapper>
   );

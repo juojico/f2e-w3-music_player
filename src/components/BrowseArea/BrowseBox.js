@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ALL_ALBUM } from "../../MockData";
 import {
   taylor,
   gem,
@@ -70,17 +71,16 @@ const IMG = {
 
 const BrowseBox = props => {
   const { data, onClickAlbum, showAll,onPick } = props;
-  const items = Object.keys(data);
   return (
     <BrowseBoxWrapper className={"myScroll"} showAll={showAll}>
-      {items.map(item => {
+      {data.map(item => {
         return (
           <Box key={`Box${item}`} showAll={showAll}>
-            <AlbumImg img={data[item].img} onClick={()=>onPick(item)} />
-            <AlbumName>{data[item].name}</AlbumName>
+            <AlbumImg img={ALL_ALBUM[item].img} onClick={()=>onPick(item)} />
+            <AlbumName>{ALL_ALBUM[item].name}</AlbumName>
             <Info>
-              <Singer>{data[item].singer}</Singer>
-              <Songs>共{data[item].songs}首歌曲</Songs>
+              <Singer>{ALL_ALBUM[item].singer}</Singer>
+              <Songs>共{ALL_ALBUM[item].songs.length}首歌曲</Songs>
             </Info>
           </Box>
         );

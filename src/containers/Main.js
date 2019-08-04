@@ -5,7 +5,7 @@ import AlbumContainer from "./AlbumContainer";
 import BrowseContainer from "./BrowseContainer";
 import PlayerContainer from "./PlayerContainer";
 import MainMenuContainer from "./MainMenuContainer";
-import { BROWSE_DATA, ALL_ALBUM } from "../MockData";
+import { ALL_ALBUM } from "../MockData";
 
 const MainWrapper = styled.div`
   position: relative;
@@ -22,31 +22,45 @@ const MainWrapper = styled.div`
 const Main = () => {
   const [isPagesOpen, setPagesOpen] = useState([1, 0, 0, 1]);
   const [isAdOpen, setAdOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [nowPlayAlbum, setNowPlayAlbum] = useState("taylor");
   const [pickAlbum, setPickAlbum] = useState("taylor");
-  const [nowPlaySong, setNowPlaySong] = useState(0);
+  const [nowPlaySong, setNowPlaySong] = useState("The Archer");
 
   const handleClick = status => {
     setPagesOpen(status);
   };
 
   const handlePick = name => {
-  console.log("TCL: Main -> PickAlbum", name)
     setPickAlbum(name);
     setPagesOpen([1, 0, 0, 1]);
+  };
+
+  const handleOnPlay = (album, song) => {
+    setNowPlayAlbum(album);
+    setNowPlaySong(song);
   };
 
   return (
     <MainWrapper>
       <AdContainer open={isAdOpen} />
-      <AlbumContainer open={isPagesOpen[0]} data={ALL_ALBUM[pickAlbum]} onClose={() => handleClick([0, 1, 0, 1])}/>
-      <BrowseContainer open={isPagesOpen[1]} data={BROWSE_DATA} onPick={handlePick} />
+      <AlbumContainer
+        open={isPagesOpen[0]}
+        data={ALL_ALBUM[pickAlbum]}
+        pickAlbum={pickAlbum}
+        nowPlaySong={nowPlaySong}
+        onClose={() => handleClick([0, 1, 0, 1])}
+        onPlay={handleOnPlay}
+        isPlaying={isPlaying}
+      />
+      <BrowseContainer open={isPagesOpen[1]} onPick={handlePick} />
       <PlayerContainer
         open={isPagesOpen[2]}
         data={ALL_ALBUM[nowPlayAlbum]}
         song={nowPlaySong}
         onOpen={() => handleClick([0, 0, 1, 0])}
         onClose={() => handleClick([0, 1, 0, 1])}
+        isPlaying={statu => setIsPlaying(statu)}
       />
       <MainMenuContainer open={isPagesOpen[3]} />
     </MainWrapper>
