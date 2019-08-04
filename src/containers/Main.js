@@ -20,7 +20,7 @@ const MainWrapper = styled.div`
 `;
 
 const Main = () => {
-  const [isPagesOpen, setPagesOpen] = useState([1, 0, 0, 1]);
+  const [isPagesOpen, setPagesOpen] = useState([0, 1, 0, 1]);
   const [isAdOpen, setAdOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [nowPlayAlbum, setNowPlayAlbum] = useState("taylor");
