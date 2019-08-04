@@ -1,35 +1,39 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5bef818acc80ae3a7b8d74fe082364f7",
+    "revision": "fa2faf70a9801bdbdfb4cf46ab3ed947",
     "url": "/f2e-w3-music_player/index.html"
   },
   {
-    "revision": "dac515aafe5a5fd19135",
+    "revision": "e412dbb6b66503867b18",
     "url": "/f2e-w3-music_player/static/css/main.fea9174b.chunk.css"
   },
   {
-    "revision": "0786d5cf06adc71fa80c",
-    "url": "/f2e-w3-music_player/static/js/2.127be80e.chunk.js"
+    "revision": "3c5355a665bb0a1f8dbd",
+    "url": "/f2e-w3-music_player/static/js/2.67354ece.chunk.js"
   },
   {
-    "revision": "dac515aafe5a5fd19135",
-    "url": "/f2e-w3-music_player/static/js/main.1742eeff.chunk.js"
+    "revision": "e412dbb6b66503867b18",
+    "url": "/f2e-w3-music_player/static/js/main.9c11b424.chunk.js"
   },
   {
     "revision": "bb315abe277a6336cc67",
     "url": "/f2e-w3-music_player/static/js/runtime~main.6a2a37c9.js"
   },
   {
-    "revision": "03ade25275d750f2546f94fe85d37cbd",
-    "url": "/f2e-w3-music_player/static/media/CanWePretend.03ade252.jpg"
+    "revision": "4cc130cf3303a2ed3a9fe17f72bccfaa",
+    "url": "/f2e-w3-music_player/static/media/CanWePretend.4cc130cf.jpg"
   },
   {
-    "revision": "c4de8fca9fbd6a5513c3cebed51e5c00",
-    "url": "/f2e-w3-music_player/static/media/Cosmospeople.c4de8fca.jpg"
+    "revision": "26e8ee09964b6f160a117792164ae63f",
+    "url": "/f2e-w3-music_player/static/media/Cosmospeople.26e8ee09.jpg"
   },
   {
-    "revision": "1ca33a1ebf2c35addb92d4ab3f12595e",
-    "url": "/f2e-w3-music_player/static/media/GEM.1ca33a1e.jpg"
+    "revision": "2227ac410e27ee8f12fda3383531e82c",
+    "url": "/f2e-w3-music_player/static/media/GEM.2227ac41.jpg"
+  },
+  {
+    "revision": "c03fd2e365648c2fccb73b37d3731e3b",
+    "url": "/f2e-w3-music_player/static/media/JFla.c03fd2e3.jpg"
   },
   {
     "revision": "cd4cb2df35df483a530a0d6dd9c505e4",
@@ -108,19 +112,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/f2e-w3-music_player/static/media/logo_music.e745fc97.svg"
   },
   {
-    "revision": "28af1d971442544c725d2156cbd5d1e3",
-    "url": "/f2e-w3-music_player/static/media/nature.28af1d97.jpeg"
+    "revision": "59959284699bb66fce8e368d6f31ff24",
+    "url": "/f2e-w3-music_player/static/media/nature.59959284.jpg"
   },
   {
-    "revision": "b29d6a8074990867a7b1e80e2f36cc6a",
-    "url": "/f2e-w3-music_player/static/media/relax.b29d6a80.jpeg"
+    "revision": "2726caf581cf2428ebdf5e367fbb8c3b",
+    "url": "/f2e-w3-music_player/static/media/relax.2726caf5.jpg"
   },
   {
-    "revision": "e193e10b06d498d8e4a4b2b76ce4c353",
-    "url": "/f2e-w3-music_player/static/media/taylor.e193e10b.png"
+    "revision": "312387a8becbe0718169cf70f95ec426",
+    "url": "/f2e-w3-music_player/static/media/taylor.312387a8.jpg"
   },
   {
-    "revision": "21f80a8fcdc4a54e2006f57901a2b68f",
-    "url": "/f2e-w3-music_player/static/media/taylorBg.21f80a8f.jpg"
+    "revision": "5d7f57119ff6582b5a7d0c6b8b62c879",
+    "url": "/f2e-w3-music_player/static/media/taylorBg.5d7f5711.jpg"
   }
 ]);
