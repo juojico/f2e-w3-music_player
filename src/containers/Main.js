@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import AdContainer from "./AdContainer";
 import AlbumContainer from "./AlbumContainer";
 import BrowseContainer from "./BrowseContainer";
 import PlayerContainer from "./PlayerContainer";
@@ -19,19 +20,34 @@ const MainWrapper = styled.div`
 `;
 
 const Main = () => {
-  const [isPagesOpen, setPagesOpen] = useState([0, 1, 0, 1]);
-  const [nowPlayAlbun, setNowPlayAlbun] = useState('taylor');
+  const [isPagesOpen, setPagesOpen] = useState([1, 0, 0, 1]);
+  const [isAdOpen, setAdOpen] = useState(false);
+  const [nowPlayAlbum, setNowPlayAlbum] = useState("taylor");
+  const [pickAlbum, setPickAlbum] = useState("taylor");
   const [nowPlaySong, setNowPlaySong] = useState(0);
 
   const handleClick = status => {
     setPagesOpen(status);
   };
 
+  const handlePick = name => {
+  console.log("TCL: Main -> PickAlbum", name)
+    setPickAlbum(name);
+    setPagesOpen([1, 0, 0, 1]);
+  };
+
   return (
     <MainWrapper>
-      <AlbumContainer open={isPagesOpen[0]} />
-      <BrowseContainer open={isPagesOpen[1]} data={BROWSE_DATA} />
-      <PlayerContainer open={isPagesOpen[2]} data={ALL_ALBUM[nowPlayAlbun]} song={nowPlaySong} onOpen={()=>handleClick([0,0,1,0])} onClose={()=>handleClick([0,1,0,1])}/>
+      <AdContainer open={isAdOpen} />
+      <AlbumContainer open={isPagesOpen[0]} data={ALL_ALBUM[pickAlbum]} onClose={() => handleClick([0, 1, 0, 1])}/>
+      <BrowseContainer open={isPagesOpen[1]} data={BROWSE_DATA} onPick={handlePick} />
+      <PlayerContainer
+        open={isPagesOpen[2]}
+        data={ALL_ALBUM[nowPlayAlbum]}
+        song={nowPlaySong}
+        onOpen={() => handleClick([0, 0, 1, 0])}
+        onClose={() => handleClick([0, 1, 0, 1])}
+      />
       <MainMenuContainer open={isPagesOpen[3]} />
     </MainWrapper>
   );

@@ -1,8 +1,8 @@
 const BROWSE_DATA = {
   recently: {
-    r01: { name: "Lover", singer: "Taylor Swift", img: "taylor", songs: "3" },
-    r02: { name: "差不多姑娘", singer: "G.E.M 鄧紫琪", img: "gem", songs: "1" },
-    r03: {
+    taylor: { name: "Lover", singer: "Taylor Swift", img: "taylor", songs: "3" },
+    gem: { name: "差不多姑娘", singer: "G.E.M 鄧紫琪", img: "gem", songs: "1" },
+    Cosmos: {
       name: "查無此人",
       singer: "宇宙人",
       img: "Cosmospeople",
@@ -10,22 +10,36 @@ const BROWSE_DATA = {
     }
   },
   popular: {
-    p01: {
+    JFla: {
+      name: "Rose",
+      singer: "J.Fla",
+      img: "JFla",
+      songs: "20"
+    },
+    no6: {
       name: "NO.6 Collaborations Project",
       singer: "Ed Sheehan",
       img: "no6",
       songs: "15"
     },
-    p02: {
+    canwe: {
       name: "Can We Pretend(The Remixes)",
       singer: "P!nk",
       img: "canwe",
       songs: "4"
+    },
+    taylor: { name: "Lover", singer: "Taylor Swift", img: "taylor", songs: "3" },
+    gem: { name: "差不多姑娘", singer: "G.E.M 鄧紫琪", img: "gem", songs: "1" },
+    Cosmos: {
+      name: "查無此人",
+      singer: "宇宙人",
+      img: "Cosmospeople",
+      songs: "10"
     }
   },
   mood: {
-    m01: { name: "relax", singer: "relax", img: "relax", songs: "2" },
-    m02: { name: "nature", singer: "nature", img: "nature", songs: "3" }
+    relax: { name: "relax", singer: "relax", img: "relax", songs: "2" },
+    nature: { name: "nature", singer: "nature", img: "nature", songs: "3" }
   }
 };
 
@@ -78,6 +92,20 @@ const ALL_ALBUM = {
     img: "nature",
     songs: ["Track 01", "Track 02", "Track 03"],
     year: "2019"
+  },
+  JFla: {
+    name: "Rose",
+    singer: "J.Fla",
+    img: "JFla",
+    songs: [
+      "Havana",
+      "Say Somthing",
+      "FRIENDS",
+      "Never Be The Same",
+      "Perfect",
+      "Despacito",
+      "2U"
+    ]
   }
 };
 

@@ -21,6 +21,7 @@ import {
   canwe,
   relax,
   nature,
+  JFla,
   taylorBg
 } from "../media/index.js";
 
@@ -174,7 +175,8 @@ const IMG = {
   no6: no6,
   canwe: canwe,
   relax: relax,
-  nature: nature
+  nature: nature,
+  JFla: JFla
 };
 
 const PlayerContainer = props => {

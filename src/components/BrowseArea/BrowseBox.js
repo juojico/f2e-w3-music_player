@@ -7,25 +7,25 @@ import {
   no6,
   canwe,
   relax,
-  nature
+  nature,
+  JFla
 } from "../../media/index.js";
 
 const BrowseBoxWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  height: 206px;
   margin-left: -12px;
   margin-right: -12px;
   overflow-x: auto;
   ${props =>
-    props.showAll ? `flex-wrap: wrap;padding-bottom: 96px;height:auto;` : null}
+    props.showAll ? `flex-wrap: wrap;padding-bottom: 150px;height:auto;` : null}
 `;
 
 const Box = styled.div`
   width: 166px;
   text-align: left;
   margin-left: 10px;
-  margin-bottom: 18px;
+  ${props => (props.showAll ? `margin-bottom: 18px;` : null)}
 `;
 
 const AlbumName = styled.div`
@@ -42,6 +42,7 @@ const AlbumImg = styled.div`
   background: url(${props => IMG[props.img]});
   background-size: cover;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.36);
+  cursor: pointer;
 `;
 
 const Info = styled.div`
@@ -63,18 +64,19 @@ const IMG = {
   no6: no6,
   canwe: canwe,
   relax: relax,
-  nature: nature
+  nature: nature,
+  JFla: JFla
 };
 
 const BrowseBox = props => {
-  const { data, onClickAlbum, showAll } = props;
+  const { data, onClickAlbum, showAll,onPick } = props;
   const items = Object.keys(data);
   return (
     <BrowseBoxWrapper className={"myScroll"} showAll={showAll}>
       {items.map(item => {
         return (
-          <Box key={`Box${item}`}>
-            <AlbumImg img={data[item].img} />
+          <Box key={`Box${item}`} showAll={showAll}>
+            <AlbumImg img={data[item].img} onClick={()=>onPick(item)} />
             <AlbumName>{data[item].name}</AlbumName>
             <Info>
               <Singer>{data[item].singer}</Singer>

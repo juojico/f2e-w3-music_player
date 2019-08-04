@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import BrowseTitle from "./BrowseTitle.js";
 import BrowseBox from "./BrowseBox.js";
-import back from "../../media/slice/btn_back.svg";
+import { BtnBack } from "../Button";
 
 const BrowseAreaWrapper = styled.div`
   position: relative;
@@ -10,7 +10,7 @@ const BrowseAreaWrapper = styled.div`
   height: 100%;
   background: #393e46;
   border-radius: 16px;
-  padding: 12px 16px 96px 16px;
+  padding: 12px 16px 150px 16px;
   overflow-y: auto;
   &::before {
     position: absolute;
@@ -26,35 +26,39 @@ const Area = styled.div`
 `;
 
 const BrowseArea = props => {
-  const [showMore, setShowmore] = useState([false,'']);
-  const { data } = props;
+  const [showMore, setShowmore] = useState([false, ""]);
+  const { data, onPick } = props;
   const titles = Object.keys(data);
   const onClickMore = id => {
-    setShowmore([true,id]);
+    setShowmore([true, id]);
   };
   const onBack = () => {
-    setShowmore([false,'']);
+    setShowmore([false, ""]);
   };
   return (
-    <BrowseAreaWrapper className={"myScroll"}>
-      {showMore[0]?
-      <>
-      <img src={back} onClick={onBack}/>
+    <>
+      {showMore[0] ? <BtnBack onClick={onBack} /> : null}
+      <BrowseAreaWrapper className={"myScroll"}>
+        {showMore[0] ? (
           <Area>
-            <BrowseTitle title={showMore[1]} noMore/>
-            <BrowseBox data={data[showMore[1]]} showAll/>
+            <BrowseTitle title={showMore[1]} noMore />
+            <BrowseBox data={data[showMore[1]]} onPick={onPick} showAll />
           </Area>
-          </>
-        :
-        titles.map(item => {
-        return (
-          <Area key={item}>
-            <BrowseTitle title={item} onClickMore={() => onClickMore(item)} />
-            <BrowseBox data={data[item]} />
-          </Area>
-        );
-      })}
-    </BrowseAreaWrapper>
+        ) : (
+          titles.map(item => {
+            return (
+              <Area key={item}>
+                <BrowseTitle
+                  title={item}
+                  onClickMore={() => onClickMore(item)}
+                />
+                <BrowseBox data={data[item]} onPick={onPick} />
+              </Area>
+            );
+          })
+        )}
+      </BrowseAreaWrapper>
+    </>
   );
 };
 

@@ -19,7 +19,7 @@ const BrowseWrapper = styled.div`
 
 const Header = styled.div`
   width: 100%;
-  height: 88px;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: cneter;
@@ -29,13 +29,13 @@ const Header = styled.div`
 `;
 
 const BrowseContainer = props => {
-  const { open, data } = props;
+  const { open, data, onPick } = props;
   return (
     <BrowseWrapper open={open}>
       <Header>
         <img src={require("../media/slice/logo_music.svg")} alt="LOGO-MUSIC" />
       </Header>
-      <BrowseArea data={data}>BrowseContainer</BrowseArea>
+      <BrowseArea data={data} onPick={onPick}>BrowseContainer</BrowseArea>
     </BrowseWrapper>
   );
 };
