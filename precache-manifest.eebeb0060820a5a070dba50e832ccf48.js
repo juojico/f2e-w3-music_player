@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3801a27574ba3ea007d4729de69c72f6",
+    "revision": "8377f5f2e0a938730f39ca2f16977905",
     "url": "/f2e-w3-music_player/index.html"
   },
   {
-    "revision": "1c1f1f25899fc509ef0d",
+    "revision": "d30407520f38d7bc0a4b",
     "url": "/f2e-w3-music_player/static/css/main.3fafb2b3.chunk.css"
   },
   {
-    "revision": "e946a031ba3551a7ee00",
-    "url": "/f2e-w3-music_player/static/js/2.1682fae2.chunk.js"
+    "revision": "1c4a79bfe06a133765b3",
+    "url": "/f2e-w3-music_player/static/js/2.894af87f.chunk.js"
   },
   {
-    "revision": "1c1f1f25899fc509ef0d",
-    "url": "/f2e-w3-music_player/static/js/main.01ff8e18.chunk.js"
+    "revision": "d30407520f38d7bc0a4b",
+    "url": "/f2e-w3-music_player/static/js/main.5bf9ac1c.chunk.js"
   },
   {
     "revision": "bb315abe277a6336cc67",
@@ -96,8 +96,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/f2e-w3-music_player/static/media/btn_play.72a85c67.svg"
   },
   {
+    "revision": "9e75b23c6c4161772281bd1696fff7ba",
+    "url": "/f2e-w3-music_player/static/media/btn_play_album.9e75b23c.svg"
+  },
+  {
     "revision": "e6528773d7a7d71636f751bb584deb65",
     "url": "/f2e-w3-music_player/static/media/btn_play_lg.e6528773.svg"
+  },
+  {
+    "revision": "cbce9f486c8258b4da81734f718c0724",
+    "url": "/f2e-w3-music_player/static/media/btn_play_on.cbce9f48.svg"
   },
   {
     "revision": "214c222c560f11a30c0ded4f149cb48a",
@@ -110,6 +118,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "351bc2845cfa08b1b11959d4124de1b8",
     "url": "/f2e-w3-music_player/static/media/btn_shuffle.351bc284.svg"
+  },
+  {
+    "revision": "a554abb05bde78c8c191a948ac8859bf",
+    "url": "/f2e-w3-music_player/static/media/btn_shuffle_on.a554abb0.svg"
   },
   {
     "revision": "1942e145299470fd4063c7652f4aceca",
@@ -154,6 +166,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "2726caf581cf2428ebdf5e367fbb8c3b",
     "url": "/f2e-w3-music_player/static/media/relax.2726caf5.jpg"
+  },
+  {
+    "revision": "08d0df0688f6b0739a395c18084a152f",
+    "url": "/f2e-w3-music_player/static/media/reputation.08d0df06.jpg"
   },
   {
     "revision": "312387a8becbe0718169cf70f95ec426",
