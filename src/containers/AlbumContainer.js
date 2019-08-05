@@ -3,6 +3,8 @@ import styled, { keyframes } from "styled-components";
 import like from "../media/slice/btn_like.svg";
 import likeOn from "../media/slice/btn_like_on.svg";
 import play from "../media/slice/btn_play_lg.svg";
+import playOn from "../media/slice/btn_play_on.svg";
+import shuffleOn from "../media/slice/btn_shuffle_on.svg";
 import more from "../media/slice/btn_more.svg";
 import motion from "../media/slice/motion.svg";
 import { BtnBack } from "../components/Button";
@@ -95,6 +97,7 @@ display: inline-block;
 `;
 
 const MainInfoBox = styled.div`
+  position: relative;
   display: flex;
   width: 100%;
   min-height: 166px;
@@ -144,6 +147,17 @@ const Songs = styled.div`
   font-size: 8px;
 `;
 
+const InfoControl = styled.div`
+  position: absolute;
+  width: 110px;
+  left: 100%;
+  margin-left: -142px;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+`;
+
 const ListItem = styled.div`
   position: relative;
   width: 100%;
@@ -185,7 +199,7 @@ const ItemBody = styled.div`
   border-bottom: 1px solid #393e46;
 `;
 
-const MotionAni =keyframes`
+const MotionAni = keyframes`
   0% {
     box-shadow: -14px 19px 0 #29DDE032,-7px 16px 0 #29DDE064,0 21px 0 #29DDE096,7px 24px 0 #29DDE0C8,14px 21px 0 #29DDE0FF;
   }
@@ -205,7 +219,7 @@ const MotionAni =keyframes`
     box-shadow: -14px 19px 0 #29DDE032,-7px 16px 0 #29DDE064,0 21px 0 #29DDE096,7px 24px 0 #29DDE0C8,14px 21px 0 #29DDE0FF;
   }
 
-`
+`;
 
 const Motion = styled.div`
   position: relative;
@@ -243,7 +257,8 @@ const AlbumContainer = props => {
     onClose,
     onPlay,
     nowPlaySong,
-    isPlaying
+    isPlaying,
+    openSinger
   } = props;
   return (
     <AlbumWrapper open={open}>
@@ -268,11 +283,15 @@ const AlbumContainer = props => {
           <AlbumImg img={data.img} />
           <Info>
             <AlbumName>{data.name}</AlbumName>
-            <Singer>{data.singer}</Singer>
+            <Singer onClick={openSinger}>{data.singer}</Singer>
             <Year>{data.year}</Year>
             <Songs>
               共{data.songs.length}首歌曲, {data.songs.length * 3}分鐘
             </Songs>
+            <InfoControl>
+              <Icon img={playOn} />
+              <Icon img={shuffleOn} />
+            </InfoControl>
           </Info>
         </MainInfoBox>
         <MusicList className={"myScroll"}>
@@ -284,7 +303,7 @@ const AlbumContainer = props => {
                     isPlaying ? (
                       <Motion />
                     ) : (
-                      <img src={motion} alt={'motion'}/>
+                      <img src={motion} alt={"motion"} />
                     )
                   ) : (
                     index + 1

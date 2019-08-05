@@ -7,5 +7,17 @@ import relax from "./image/relax.jpg";
 import nature from "./image/nature.jpg";
 import JFla from "./image/JFla.jpg";
 import taylorBg from "./image/taylorBg.jpg";
+import reputation from "./image/reputation.jpg";
 
-export { taylor, gem, Cosmospeople, no6, canwe, relax, nature, JFla, taylorBg };
+export {
+  taylor,
+  gem,
+  Cosmospeople,
+  no6,
+  canwe,
+  relax,
+  nature,
+  JFla,
+  taylorBg,
+  reputation
+};

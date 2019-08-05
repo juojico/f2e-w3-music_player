@@ -210,6 +210,7 @@ const PlayerContainer = props => {
     isPlaying(iconStatus.playing);
     if (audio.ended) {
       openAd();
+      changeMusic();
     }
     if (iconStatus.playing) {
       audio.play();

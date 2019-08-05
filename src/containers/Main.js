@@ -4,6 +4,7 @@ import AdContainer from "./AdContainer";
 import AlbumContainer from "./AlbumContainer";
 import BrowseContainer from "./BrowseContainer";
 import PlayerContainer from "./PlayerContainer";
+import SingerContainer from "./SingerContainer";
 import MainMenuContainer from "./MainMenuContainer";
 import { ALL_ALBUM } from "../MockData";
 
@@ -25,7 +26,8 @@ const Main = () => {
     browse: true,
     player: false,
     menu: true,
-    ad: false
+    ad: false,
+    singer: false
   });
   const [isPlaying, setIsPlaying] = useState(true);
   const [nowPlayAlbum, setNowPlayAlbum] = useState("taylor");
@@ -60,10 +62,19 @@ const Main = () => {
         onClose={() =>
           handleClick({ ...isPagesOpen, album: false, browse: true })
         }
+        openSinger={() =>
+          handleClick({ ...isPagesOpen, album: false, singer: true })
+        }
         onPlay={handleOnPlay}
         isPlaying={isPlaying}
       />
       <BrowseContainer open={isPagesOpen.browse} onPick={handlePick} />
+      <SingerContainer
+        open={isPagesOpen.singer}
+        onClose={() =>
+          handleClick({ ...isPagesOpen, album: true, singer: false })
+        }
+      />
       <PlayerContainer
         open={isPagesOpen.player}
         data={ALL_ALBUM[nowPlayAlbum]}
