@@ -22,6 +22,11 @@ const AdImg = styled.div`
   height: 371px;
   margin-top: 48px;
   background: url(${ad});
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
 `;
 
 const Btn = styled.div`
@@ -49,7 +54,7 @@ const AdContainer = props => {
       {open ? (
         <AdWrapper>
           廣告
-          <AdImg />
+          <AdImg><img src={require("../media/slice/logo_music.svg")} alt="LOGO-MUSIC" /></AdImg>
           <Btn>前往訂閱</Btn>
           <BtnClose onClick={onClose} />
         </AdWrapper>

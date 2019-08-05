@@ -12,6 +12,10 @@ import repeat1 from "../media/slice/btn_repeat1.svg";
 import like from "../media/slice/btn_like.svg";
 import likeOn from "../media/slice/btn_like_on.svg";
 import iceCream from "../media/music/Ice_Cream.mp3";
+import central from "../media/music/Central_Park.mp3";
+import fond from "../media/music/Fond_Memories.mp3";
+import spring from "../media/music/Sprightly_Pursuit.mp3";
+import plan from "../media/music/The_Plan_s_Working.mp3";
 
 import {
   taylor,
@@ -178,7 +182,19 @@ const IMG = {
   JFla: JFla
 };
 
-const audio = new Audio(iceCream);
+const MUSIC_LIST = [iceCream, central, fond, spring, plan];
+let nowPlay = 0;
+
+let audio = new Audio(iceCream);
+
+const changeMusic = () => {
+  nowPlay += 1;
+  if (nowPlay >= MUSIC_LIST.length) {
+    nowPlay = 0;
+  }
+  audio.pause();
+  audio = new Audio(MUSIC_LIST[nowPlay]);
+};
 
 const PlayerContainer = props => {
   const [iconStatus, setIconStatus] = useState({
@@ -188,10 +204,13 @@ const PlayerContainer = props => {
     playing: true
   });
   const [audioTime, setAudioTime] = useState([0, 0]);
-  const { open, data, song, onOpen, onClose, isPlaying,openAd } = props;
+  const { open, data, song, onOpen, onClose, isPlaying, openAd } = props;
 
   useEffect(() => {
     isPlaying(iconStatus.playing);
+    if (audio.ended) {
+      openAd();
+    }
     if (iconStatus.playing) {
       audio.play();
       setTimeout(() => {
@@ -241,13 +260,13 @@ const PlayerContainer = props => {
             {iconStatus.like ? (
               <PlayerIcon
                 img={likeOn}
-                size="150%"
+                size='150%'
                 onClick={() => setIconStatus({ ...iconStatus, like: false })}
               />
             ) : (
               <PlayerIcon
                 img={like}
-                size="150%"
+                size='150%'
                 onClick={() => setIconStatus({ ...iconStatus, like: true })}
               />
             )}
@@ -273,7 +292,11 @@ const PlayerContainer = props => {
           </ControllerSong>
         ) : null}
         <Controller open={open}>
-          <PlayerIcon img={last} size={open ? "150%" : null} />
+          <PlayerIcon
+            img={last}
+            size={open ? "150%" : null}
+            onClick={() => (audio.currentTime = 0)}
+          />
           {iconStatus.playing ? (
             <PlayerIcon
               img={pause}
@@ -287,10 +310,19 @@ const PlayerContainer = props => {
               onClick={() => setIconStatus({ ...iconStatus, playing: true })}
             />
           )}
-          <PlayerIcon img={next} size={open ? "150%" : null} onClick={openAd}/>
+          <PlayerIcon
+            img={next}
+            size={open ? "150%" : null}
+            onClick={() => changeMusic()}
+          />
         </Controller>
         {open ? (
-          <PlayBar open={open} time={[audio.volume,1]} color={"#C9C6CE"} hasIcon />
+          <PlayBar
+            open={open}
+            time={[audio.volume, 1]}
+            color={"#C9C6CE"}
+            hasIcon
+          />
         ) : null}
       </PlayerArea>
     </PlayerWrapper>
